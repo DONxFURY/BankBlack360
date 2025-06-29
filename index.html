@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BankBlack365 | Premium Styles</title>
+    <title>BankBlack365 | Premium Wig Styles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400;700&family=Oswald:wght@500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
@@ -279,7 +279,7 @@
         /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2.5rem;
             padding: 4rem 5%;
         }
@@ -299,6 +299,7 @@
             opacity: 1;
             transform: translateY(0);
             transition: all 0.5s ease;
+            height: 100%;
         }
         
         .product-card.hidden {
@@ -439,6 +440,7 @@
         .product-actions {
             display: flex;
             gap: 1rem;
+            margin-top: auto;
         }
         
         .inquire-button {
@@ -803,32 +805,65 @@
             color: var(--gold);
         }
         
-        /* Responsive Design - Desktop Fixes */
-        /* Improved desktop layout */
-        .hero-content {
-            max-width: 850px;
+        /* Body Wave Section Header */
+        .section-header {
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 2rem;
         }
         
-        .products-grid {
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
         
-        .product-card {
-            height: 100%;
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
         }
         
-        .product-info {
-            min-height: 280px;
+        .section-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ddd;
         }
         
-        /* Mobile Optimizations */
+        /* Floating elements */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 3.5rem;
             }
             
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            .section-header h2 {
+                font-size: 2.5rem;
             }
         }
         
@@ -952,61 +987,30 @@
             }
         }
         
-        /* Extra small phones (360px and below) */
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             .logo {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
             
             .logo::after {
-                font-size: 0.4rem;
-                bottom: -5px;
-                right: -5px;
-            }
-            
-            .page-title {
-                padding: 3rem 3% 1.5rem;
+                font-size: 0.5rem;
+                bottom: -6px;
             }
             
             .page-title h2 {
-                font-size: 1.8rem;
-                letter-spacing: 1px;
-            }
-            
-            .page-title p {
-                font-size: 1rem;
-            }
-            
-            .hero {
-                padding: 5rem 3% 3rem;
-            }
-            
-            .hero h1 {
                 font-size: 2rem;
             }
             
-            .hero h1::after {
-                font-size: 0.9rem;
-                top: -8px;
-                padding: 2px 8px;
+            .section-header h2 {
+                font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
-            .contact-btn {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-            
-            .product-img {
-                height: 250px;
-            }
-            
-            .product-info {
-                padding: 1.2rem;
-                min-height: auto;
+            .product-actions {
+                flex-direction: column;
             }
             
             .product-info h3 {
@@ -1021,59 +1025,18 @@
                 font-size: 1rem;
             }
             
-            .discount {
-                font-size: 0.8rem;
+            .product-img {
+                height: 250px;
             }
             
-            .bundle-info {
-                padding: 0.6rem;
-                font-size: 0.85rem;
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
             }
             
-            .inquire-button {
-                font-size: 0.85rem;
-                padding: 0.7rem;
+            .contact-details {
+                margin-top: 0.5rem;
             }
-            
-            .filter-bar {
-                gap: 0.5rem;
-                padding: 1rem 3%;
-            }
-            
-            .filter-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-            
-            .footer-column h3 {
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-            
-            .footer-links li {
-                font-size: 0.9rem;
-            }
-            
-            .social-links a {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .copyright {
-                font-size: 0.75rem;
-            }
-        }
-        
-        /* Floating elements */
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
         }
     </style>
 </head>
@@ -1293,85 +1256,15 @@
             <button class="filter-button" data-filter="lace-front">Lace Front</button>
         </div>
         
+        <!-- Body Wave Section -->
+        <div class="section-header">
+            <h2>Body Wave Collection</h2>
+            <p>Luxurious waves that flow naturally with body and movement</p>
+        </div>
+        
         <div class="products-grid">
-            <!-- Straight Wigs -->
-            <div class="product-card floating" data-style="straight">
-                <div class="product-img" style="background-image: url('https://i.etsystatic.com/41424740/r/il/4411a3/4701753351/il_1080xN.4701753351_isfu.jpg');">
-                    <div class="product-badge">BEST SELLER</div>
-                </div>
-                <div class="product-info">
-                    <h3>Raw Indian Hair Straight</h3>
-                    <p>Indian straight hair. Stand out with this platinum statement piece.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>26 Inches:</strong> $333.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 INches:</strong> $333.00
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$149.99</div>
-                        <div class="original-price">$199.99</div>
-                        <div class="discount">25% OFF</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-card floating" data-style="straight" style="animation-delay: 0.1s;">
-                <div class="product-img" style="background-image: url('https://i.pinimg.com/originals/35/e0/8c/35e08cddf96ff0e9bf34d48bef2365c8.jpg');">
-                    <div class="product-badge">SALE</div>
-                </div>
-                <div class="product-info">
-                    <h3>Blonde #613 Straight Boutique</h3>
-                    <p>Raw Indian hair straight bundle with natural texture and premium quality.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>Bundle Deal:</strong> Buy 2 for $550 or 3 for $750
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$306.00</div>
-                        <div class="original-price">$345.00</div>
-                        <div class="discount">11% OFF</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Body Wave Wigs -->
-            <div class="product-card floating" data-style="natural-wave" style="animation-delay: 0.2s;">
-                <div class="product-img" style="background-image: url('https://jcwholesalevirginhair.com/image/cache/catalog/indian-hair/indian-natural-wave-hair-bundles-800x800.jpg');">
-                    <div class="product-badge">HOT</div>
-                </div>
-                <div class="product-info">
-                    <h3>Natural Wave Raw Indian Hair(Steamed)</h3>
-                    <p>Classy natural black body wave with straight free parting. Perfect for any occasion.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>26 Inches:</strong> $333.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-
-                    <div class="price">
-                        <div class="current-price">$131.94</div>
-                        <div class="original-price">$219.90</div>
-                        <div class="discount">40% OFF</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.3s;">
+            <!-- Body Wave Wig 1 -->
+            <div class="product-card floating" data-style="body-wave">
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1595475884562-073c30d45670?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');">
                     <div class="product-badge">PREMIUM</div>
                 </div>
@@ -1393,8 +1286,31 @@
                 </div>
             </div>
             
-            <!-- Lace Front Wigs -->
-            <div class="product-card floating" data-style="lace-front" style="animation-delay: 0.4s;">
+            <!-- Body Wave Wig 2 -->
+            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.1s;">
+                <div class="product-img" style="background-image: url('https://m.media-amazon.com/images/I/71Gdvh0mvTL._SL1200_.jpg');">
+                    <div class="product-badge">NEW</div>
+                </div>
+                <div class="product-info">
+                    <h3>Nardo Black Exclusive Bodywave 1b</h3>
+                    <p>Premium quality body wave hair with perfect texture and longevity.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $170 or 3 for $240
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$95.00</div>
+                        <div class="discount">FREE SHIPPING</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Body Wave Wig 3 -->
+            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.2s;">
                 <div class="product-img" style="background-image: url('https://ae01.alicdn.com/kf/S9e9bce6421624dd68f8c45ae9bbdb540D/Body-Wave-13x4-Lace-Front-Human-Hair-Wig-For-Black-Women-Brazilian-Weave-Lace-Closure-Wig.jpg');">
                     <div class="product-badge">POPULAR</div>
                 </div>
@@ -1425,22 +1341,117 @@
                 </div>
             </div>
             
-            <!-- NEW Wigs -->
-            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.5s;">
-                <div class="product-img" style="background-image: url('https://m.media-amazon.com/images/I/71Gdvh0mvTL._SL1200_.jpg');">
-                    <div class="product-badge">NEW</div>
+            <!-- Body Wave Wig 4 -->
+            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.3s;">
+                <div class="product-img" style="background-image: url('https://i.pinimg.com/originals/35/e0/8c/35e08cddf96ff0e9bf34d48bef2365c8.jpg');">
+                    <div class="product-badge">BEST SELLER</div>
                 </div>
                 <div class="product-info">
-                    <h3>Nardo Black Exclusive Bodywave 1b</h3>
-                    <p>natural hair,perfect texture and longevity.</p>
+                    <h3>Deep Wave Brazilian Hair</h3>
+                    <p>Luxurious deep wave pattern with natural movement and shine.</p>
                     
                     <div class="bundle-info">
-                        <strong>Bundle Deal:</strong> Buy 2 for $170 or 3 for $240
+                        <strong>Bundle Deal:</strong> Buy 2 for $450 or 3 for $600
                     </div>
                     
                     <div class="price">
-                        <div class="current-price">$95.00</div>
-                        <div class="discount">FREE SHIPPING</div>
+                        <div class="current-price">$249.99</div>
+                        <div class="original-price">$299.99</div>
+                        <div class="discount">17% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Straight Wigs Section -->
+        <div class="section-header">
+            <h2>Straight Styles</h2>
+            <p>Sleek, smooth, and perfectly straight for a polished look</p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Straight Wig 1 -->
+            <div class="product-card floating" data-style="straight">
+                <div class="product-img" style="background-image: url('https://i.etsystatic.com/41424740/r/il/4411a3/4701753351/il_1080xN.4701753351_isfu.jpg');">
+                    <div class="product-badge">BEST SELLER</div>
+                </div>
+                <div class="product-info">
+                    <h3>Raw Indian Hair Straight</h3>
+                    <p>Indian straight hair. Stand out with this platinum statement piece.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>26 Inches:</strong> $333.00
+                    </div>
+                    <div class="bundle-info">
+                        <strong>30 INches:</strong> $333.00
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$149.99</div>
+                        <div class="original-price">$199.99</div>
+                        <div class="discount">25% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Straight Wig 2 -->
+            <div class="product-card floating" data-style="straight" style="animation-delay: 0.1s;">
+                <div class="product-img" style="background-image: url('https://i.pinimg.com/originals/35/e0/8c/35e08cddf96ff0e9bf34d48bef2365c8.jpg');">
+                    <div class="product-badge">SALE</div>
+                </div>
+                <div class="product-info">
+                    <h3>Blonde #613 Straight Boutique</h3>
+                    <p>Raw Indian hair straight bundle with natural texture and premium quality.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $550 or 3 for $750
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$306.00</div>
+                        <div class="original-price">$345.00</div>
+                        <div class="discount">11% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Natural Wave Section -->
+        <div class="section-header">
+            <h2>Natural Waves</h2>
+            <p>Effortless texture with natural movement and volume</p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Natural Wave Wig 1 -->
+            <div class="product-card floating" data-style="natural-wave" style="animation-delay: 0.2s;">
+                <div class="product-img" style="background-image: url('https://jcwholesalevirginhair.com/image/cache/catalog/indian-hair/indian-natural-wave-hair-bundles-800x800.jpg');">
+                    <div class="product-badge">HOT</div>
+                </div>
+                <div class="product-info">
+                    <h3>Natural Wave Raw Indian Hair(Steamed)</h3>
+                    <p>Classy natural black body wave with straight free parting. Perfect for any occasion.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>26 Inches:</strong> $333.00
+                    </div>
+                    <div class="bundle-info">
+                        <strong>30 Inches:</strong> $333.00
+                    </div>
+
+                    <div class="price">
+                        <div class="current-price">$131.94</div>
+                        <div class="original-price">$219.90</div>
+                        <div class="discount">40% OFF</div>
                     </div>
                     <div class="product-actions">
                         <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
