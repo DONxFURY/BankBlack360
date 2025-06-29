@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Thug Wigs | Premium Styles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400;700&family=Oswald:wght@500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --light-gray: #333;
+            --white: #f5f5f5;
+            --accent: #8a2be2;
+            --red: #ff073a;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --glow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--black), #111);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: var(--glow);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: 'PREMIUM';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            font-size: 0.6rem;
+            color: var(--white);
+            background: var(--red);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .logo span {
+            color: var(--white);
+            font-weight: 300;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            padding: 0.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        nav a:hover i {
+            transform: translateY(-5px);
+            color: var(--gold);
+        }
+        
+        .nav-active {
+            color: var(--gold);
+        }
+        
+        .nav-active i {
+            color: var(--gold);
+        }
+        
+        .contact-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+        }
+        
+        .contact-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+        
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--gold);
+            z-index: 1001;
+        }
+        
+        /* Page Container */
+        .page-container {
+            display: none;
+            min-height: calc(100vh - 80px);
+            padding-top: 80px;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .page-container.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://haireveryday.com/wp-content/uploads/2023/02/image-99.png') no-repeat center center/cover;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, rgba(10,10,10,0.9) 70%);
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background: linear-gradient(to right, var(--gold), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        .hero h1::after {
+            content: 'PREMIUM';
+            position: absolute;
+            top: -15px;
+            right: 0;
+            font-size: 1.5rem;
+            background: var(--red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-buttons .contact-btn {
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 5%;
+        }
+        
+        .product-card {
+            background: var(--black);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+        
+        .product-card.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5), var(--glow);
+        }
+        
+        .product-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: transform 0.5s ease;
+            overflow: hidden;
+        }
+        
+        .product-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8));
+        }
+        
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--red);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .product-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .product-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .product-info p {
+            color: #bbb;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .current-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .original-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #888;
+        }
+        
+        .discount {
+            background: var(--red);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .bundle-info {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .bundle-info strong {
+            color: var(--gold);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .inquire-button {
+            flex: 1;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .inquire-button i {
+            margin-right: 8px;
+        }
+        
+        .inquire-button:hover {
+            background: #b8860b;
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 4rem 5% 2rem;
+            border-top: 2px solid var(--gold);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--accent), var(--gold));
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links li i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--dark-gray);
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--gold), var(--accent));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+        
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-links a:hover {
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            padding: 6rem 5% 3rem;
+            background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)), url('https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1677&q=80') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, rgba(10,10,10,0.9) 70%);
+        }
+        
+        .page-title-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ddd;
+            font-weight: 300;
+        }
+        
+        .filter-bar {
+            background: var(--dark-gray);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 80px;
+            z-index: 99;
+        }
+        
+        .filter-button {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+        }
+        
+        .filter-button:hover, .filter-button.active {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+        
+        /* Contact Modal */
+        .contact-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .contact-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--black);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2.5rem;
+            position: relative;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .contact-modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2;
+        }
+        
+        .close-modal:hover {
+            color: var(--gold);
+            transform: rotate(90deg);
+        }
+        
+        .modal-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--black);
+            flex-shrink: 0;
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-details h4 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-details p, .contact-details a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            word-break: break-all;
+        }
+        
+        .contact-details a:hover {
+            color: var(--gold);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.95);
+                border-bottom: 2px solid var(--gold);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 1rem;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.2rem;
+            }
+            
+            .contact-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .hero {
+                text-align: center;
+                height: auto;
+                padding: 6rem 5% 4rem;
+            }
+            
+            .hero-content {
+                margin: 0 auto;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero h1::after {
+                top: -10px;
+                font-size: 1.2rem;
+                padding: 3px 10px;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .page-title {
+                padding: 4rem 5% 2rem;
+            }
+            
+            .page-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .filter-bar {
+                padding: 1rem 5%;
+                gap: 0.8rem;
+            }
+            
+            .filter-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 2rem 5%;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-column h3::after {
+                width: 40px;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo::after {
+                font-size: 0.5rem;
+                bottom: -6px;
+            }
+            
+            .page-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .product-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            .current-price {
+                font-size: 1.5rem;
+            }
+            
+            .original-price {
+                font-size: 1rem;
+            }
+            
+            .product-img {
+                height: 250px;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-details {
+                margin-top: 0.5rem;
+            }
+        }
+        
+        /* Floating elements */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo"><i class="fas fa-crown"></i>ROYAL <span>THUG</span></div>
+        
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav id="nav">
+            <ul>
+                <li><a href="#" class="nav-link nav-active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" class="nav-link" data-page="products"><i class="fas fa-shopping-bag"></i> Collection</a></li>
+                <li><a href="#" id="contactLink"><i class="fas fa-headset"></i> Contact</a></li>
+            </ul>
+        </nav>
+        <button class="contact-btn" id="contactBtn"><i class="fas fa-phone"></i> CALL NOW</button>
+    </header>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>Contact Us</h3>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>CALL US</h4>
+                        <a href="tel:+15551234567">(555) 123-4567</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>EMAIL US</h4>
+                        <a href="mailto:contact@royalthug.com">contact@royalthug.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>VISIT US</h4>
+                        <p>123 Style Avenue, New York, NY 10001</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>HOURS</h4>
+                        <p>Mon-Fri: 9AM - 6PM EST</p>
+                        <p>Sat: 10AM - 4PM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page-container active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>PREMIUM <span>WIGS</span> WITH THUG <span>ELEGANCE</span></h1>
+                <p>Luxury hair that commands respect. Our premium wigs blend street authenticity with red carpet quality for YOU!!!.</p>
+                <div class="hero-buttons">
+                </div>
+             <button class="contact-btn" id="heroContactBtn"><i class="fas fa-phone"></i> CALL NOW</button>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <div class="page-title">
+            <div class="page-title-content">
+                <h2>Signature Styles</h2>
+                <p>Exclusive designs that blend urban edge with luxury quality</p>
+            </div>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card floating">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80');">
+                    <div class="product-badge">HOT</div>
+                </div>
+                <div class="product-info">
+                    <h3>Black Body Wave</h3>
+                    <p>Classy natural black body wave with straight free parting. Perfect for any occasion.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $220 or 3 for $300
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$131.94</div>
+                        <div class="original-price">$219.90</div>
+                        <div class="discount">40% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card floating" style="animation-delay: 0.2s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80');">
+                    <div class="product-badge">NEW</div>
+                </div>
+                <div class="product-info">
+                    <h3>Blonde #613</h3>
+                    <p>Bleached blonde Indian straight hair. Stand out with this platinum statement piece.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $260 or 3 for $360
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$149.99</div>
+                        <div class="original-price">$199.99</div>
+                        <div class="discount">25% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card floating" style="animation-delay: 0.4s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');">
+                    <div class="product-badge">FREE SHIP</div>
+                </div>
+                <div class="product-info">
+                    <h3>Natural Wave</h3>
+                    <p>Raw Indian natural wave hair, steamed for perfect texture and longevity.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $170 or 3 for $240
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$95.00</div>
+                        <div class="discount">FREE SHIPPING</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="page-title" style="background-image: url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
+            <div class="page-title-content">
+                <h2>The Thug Difference</h2>
+                <p>Premium quality with urban roots - designed for the modern queen</p>
+            </div>
+        </div>
+        
+        <div class="products-grid">
+            <div style="grid-column: 1 / -1; background: var(--dark-gray); border-radius: 15px; padding: 3rem; border: 1px solid var(--light-gray); text-align: center;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <div style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 style="font-family: 'Oswald', sans-serif; color: var(--gold); margin-bottom: 1rem;">Premium Quality</h3>
+                        <p>100% human hair ethically sourced from the finest suppliers worldwide.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <div style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3 style="font-family: 'Oswald', sans-serif; color: var(--gold); margin-bottom: 1rem;">Handcrafted</h3>
+                        <p>Each wig is meticulously crafted by our team of expert stylists.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products-page" class="page-container">
+        <div class="page-title">
+            <div class="page-title-content">
+                <h2>Premium Wig Collection</h2>
+                <p>Discover our exclusive range of high-quality wigs for black women</p>
+            </div>
+        </div>
+        
+        <div class="filter-bar">
+            <button class="filter-button active" data-filter="all">All Styles</button>
+            <button class="filter-button" data-filter="straight">Straight</button>
+            <button class="filter-button" data-filter="body-wave">Body Wave</button>
+            <button class="filter-button" data-filter="lace-front">Lace Front</button>
+            <button class="filter-button" data-filter="natural">Natural</button>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Straight Wigs -->
+            <div class="product-card floating" data-style="straight">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80');">
+                    <div class="product-badge">BEST SELLER</div>
+                </div>
+                <div class="product-info">
+                    <h3>Blonde #613</h3>
+                    <p>Bleached blonde Indian straight hair. Stand out with this platinum statement piece.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $260 or 3 for $360
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$149.99</div>
+                        <div class="original-price">$199.99</div>
+                        <div class="discount">25% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card floating" data-style="straight" style="animation-delay: 0.1s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');">
+                    <div class="product-badge">SALE</div>
+                </div>
+                <div class="product-info">
+                    <h3>Straight Bundle</h3>
+                    <p>Raw Indian hair straight bundle with natural texture and premium quality.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $550 or 3 for $750
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$306.00</div>
+                        <div class="original-price">$345.00</div>
+                        <div class="discount">11% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Body Wave Wigs -->
+            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.2s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80');">
+                    <div class="product-badge">HOT</div>
+                </div>
+                <div class="product-info">
+                    <h3>Black Body Wave</h3>
+                    <p>Classy natural black body wave with straight free parting. Perfect for any occasion.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $220 or 3 for $300
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$131.94</div>
+                        <div class="original-price">$219.90</div>
+                        <div class="discount">40% OFF</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.3s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1595475884562-073c30d45670?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');">
+                    <div class="product-badge">PREMIUM</div>
+                </div>
+                <div class="product-info">
+                    <h3>Virgin Hair Body Wave</h3>
+                    <p>100% human hair body wave with natural texture and premium quality.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $200 or 3 for $280
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$110.00</div>
+                        <div class="discount">4 PAYMENTS</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lace Front Wigs -->
+            <div class="product-card floating" data-style="lace-front" style="animation-delay: 0.4s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');">
+                    <div class="product-badge">POPULAR</div>
+                </div>
+                <div class="product-info">
+                    <h3>Body Wave Lace Front</h3>
+                    <p>Long glueless lace front wig with pre-plucked natural hairline and baby hair.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $150 or 3 for $200
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$89.99</div>
+                        <div class="discount">PRIME</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Natural Wigs -->
+            <div class="product-card floating" data-style="natural" style="animation-delay: 0.5s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');">
+                    <div class="product-badge">NEW</div>
+                </div>
+                <div class="product-info">
+                    <h3>Natural Wave</h3>
+                    <p>Raw Indian natural wave hair, steamed for perfect texture and longevity.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $170 or 3 for $240
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$95.00</div>
+                        <div class="discount">FREE SHIPPING</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card floating" data-style="natural" style="animation-delay: 0.6s;">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');">
+                    <div class="product-badge">LIMITED</div>
+                </div>
+                <div class="product-info">
+                    <h3>Kinky Straight</h3>
+                    <p>Natural kinky straight texture with lace front for a flawless hairline.</p>
+                    
+                    <div class="bundle-info">
+                        <strong>Bundle Deal:</strong> Buy 2 for $220 or 3 for $300
+                    </div>
+                    
+                    <div class="price">
+                        <div class="current-price">$129.99</div>
+                        <div class="discount">FREE SHIPPING</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Royal Thug Wigs</h3>
+                <p>Premium wigs with urban elegance. We blend street authenticity with luxury quality for unparalleled style.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="products"><i class="fas fa-shopping-bag"></i> Collection</a></li>
+                    <li><a href="#" id="footerContact"><i class="fas fa-headset"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Customer Care</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="#"><i class="fas fa-truck"></i> Shipping Policy</a></li>
+                    <li><a href="#"><i class="fas fa-exchange-alt"></i> Returns & Exchanges</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Wig Care Guide</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Style Avenue, NY</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+15551234567">(555) 123-4567</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:contact@royalthug.com">contact@royalthug.com</a></li>
+                    <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM EST</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Royal Thug Wigs. All rights reserved. Premium quality with street authenticity.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : 
+                '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Page Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                
+                // Update active nav
+                document.querySelectorAll('.nav-link').forEach(nav => {
+                    nav.classList.remove('nav-active');
+                });
+                this.classList.add('nav-active');
+                
+                showPage(targetPage);
+            });
+        });
+        
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the requested page
+            document.getElementById(`${pageId}-page`).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        
+        // Contact Modal functionality
+        const contactModal = document.getElementById('contactModal');
+        const contactBtn = document.getElementById('contactBtn');
+        const heroContactBtn = document.getElementById('heroContactBtn');
+        const contactLink = document.getElementById('contactLink');
+        const footerContact = document.getElementById('footerContact');
+        const closeModal = document.getElementById('closeModal');
+        const inquireButtons = document.querySelectorAll('.inquire-button');
+        
+        // Function to open modal
+        function openContactModal() {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Function to close modal
+        function closeContactModal() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Event listeners
+        contactBtn.addEventListener('click', openContactModal);
+        heroContactBtn.addEventListener('click', openContactModal);
+        contactLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openContactModal();
+        });
+        footerContact.addEventListener('click', function(e) {
+            e.preventDefault();
+            openContactModal();
+        });
+        closeModal.addEventListener('click', closeContactModal);
+        inquireButtons.forEach(button => {
+            button.addEventListener('click', openContactModal);
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
+        
+        // Filter functionality
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Get all product cards
+                const products = document.querySelectorAll('#products-page .product-card');
+                
+                // Filter products
+                products.forEach(product => {
+                    if (filterValue === 'all') {
+                        product.classList.remove('hidden');
+                    } else {
+                        const style = product.getAttribute('data-style');
+                        if (style === filterValue) {
+                            product.classList.remove('hidden');
+                        } else {
+                            product.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add animations to product cards
+            document.querySelectorAll('.product-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+        
+        // Touch optimization for mobile
+        document.querySelectorAll('button, a').forEach(element => {
+            element.style.cursor = 'pointer';
+            element.addEventListener('touchstart', () => {
+                element.classList.add('active');
+            });
+            element.addEventListener('touchend', () => {
+                element.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
