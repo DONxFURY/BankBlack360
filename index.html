@@ -429,6 +429,7 @@
             padding: 0.8rem;
             margin-bottom: 1.5rem;
             border-radius: 0 5px 5px 0;
+            font-size: 0.9rem;
         }
         
         .bundle-info strong {
@@ -456,6 +457,7 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.95rem;
         }
         
         .inquire-button i {
@@ -801,10 +803,32 @@
             color: var(--gold);
         }
         
-        /* Responsive Design */
+        /* Responsive Design - Desktop Fixes */
+        /* Improved desktop layout */
+        .hero-content {
+            max-width: 850px;
+        }
+        
+        .products-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        
+        .product-card {
+            height: 100%;
+        }
+        
+        .product-info {
+            min-height: 280px;
+        }
+        
+        /* Mobile Optimizations */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 3.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
         
@@ -928,26 +952,61 @@
             }
         }
         
-        @media (max-width: 480px) {
+        /* Extra small phones (360px and below) */
+        @media (max-width: 360px) {
             .logo {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .logo::after {
-                font-size: 0.5rem;
-                bottom: -6px;
+                font-size: 0.4rem;
+                bottom: -5px;
+                right: -5px;
+            }
+            
+            .page-title {
+                padding: 3rem 3% 1.5rem;
             }
             
             .page-title h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                letter-spacing: 1px;
+            }
+            
+            .page-title p {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                padding: 5rem 3% 3rem;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
-            .product-actions {
-                flex-direction: column;
+            .hero h1::after {
+                font-size: 0.9rem;
+                top: -8px;
+                padding: 2px 8px;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-img {
+                height: 250px;
+            }
+            
+            .product-info {
+                padding: 1.2rem;
+                min-height: auto;
             }
             
             .product-info h3 {
@@ -962,17 +1021,47 @@
                 font-size: 1rem;
             }
             
-            .product-img {
-                height: 250px;
+            .discount {
+                font-size: 0.8rem;
             }
             
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
+            .bundle-info {
+                padding: 0.6rem;
+                font-size: 0.85rem;
             }
             
-            .contact-details {
-                margin-top: 0.5rem;
+            .inquire-button {
+                font-size: 0.85rem;
+                padding: 0.7rem;
+            }
+            
+            .filter-bar {
+                gap: 0.5rem;
+                padding: 1rem 3%;
+            }
+            
+            .filter-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .footer-column h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .footer-links li {
+                font-size: 0.9rem;
+            }
+            
+            .social-links a {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .copyright {
+                font-size: 0.75rem;
             }
         }
         
