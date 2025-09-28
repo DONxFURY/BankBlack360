@@ -51,6 +51,13 @@
       text-align: center;
       font-weight: bold;
       background: #9147ff;
+      flex-shrink: 0;
+    }
+
+    /* 👇 KEY FIX: make the player fill the rest of the box */
+    #player1, #player2 {
+      flex: 1;
+      width: 100%;
     }
 
     @media (max-width: 900px) {
@@ -75,15 +82,15 @@
   </div>
 
   <script type="text/javascript">
-    const channel1 = "donxfury"; // Replace with your channel
-    const channel2 = "kaicenat"; // Replace with another channel
+    const channel1 = "donxfury"; 
+    const channel2 = "kaicenat"; 
 
     function createPlayer(divId, channel) {
       new Twitch.Player(divId, {
         width: "100%",
         height: "100%",
         channel: channel,
-        parent: ["localhost", "127.0.0.1", "hairwecome.shop"] // IMPORTANT FIX
+        parent: ["localhost", "127.0.0.1", "hairwecome.shop"]
       });
     }
 
