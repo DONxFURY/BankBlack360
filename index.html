@@ -1,1701 +1,946 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BankBlack365 | Premium Styles</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400;700&family=Oswald:wght@500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --black: #0a0a0a;
-            --dark-gray: #1a1a1a;
-            --light-gray: #333;
-            --white: #f5f5f5;
-            --accent: #8a2be2;
-            --red: #ff073a;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --glow: 0 0 20px rgba(212, 175, 55, 0.5);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, var(--black), #111);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.1) 0%, transparent 40%);
-            z-index: -1;
-        }
-        
-        /* Header Styles */
-        header {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--gold);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
-        }
-        
-        .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: var(--glow);
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .logo::after {
-            content: 'PREMIUM';
-            position: absolute;
-            bottom: -8px;
-            right: 0;
-            font-size: 0.6rem;
-            color: var(--white);
-            background: var(--red);
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            font-size: 1.8rem;
-        }
-        
-        .logo span {
-            color: var(--white);
-            font-weight: 300;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 2rem;
-            position: relative;
-        }
-        
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            padding: 0.5rem;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        nav a i {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            transition: var(--transition);
-        }
-        
-        nav a:hover {
-            color: var(--gold);
-        }
-        
-        nav a:hover i {
-            transform: translateY(-5px);
-            color: var(--gold);
-        }
-        
-        .nav-active {
-            color: var(--gold);
-        }
-        
-        .nav-active i {
-            color: var(--gold);
-        }
-        
-        .contact-btn {
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: bold;
-        }
-        
-        .contact-btn:hover {
-            background: var(--gold);
-            color: var(--black);
-            transform: translateY(-3px);
-        }
-        
-        /* Mobile Menu */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--gold);
-            z-index: 1001;
-        }
-        
-        /* Page Container */
-        .page-container {
-            display: none;
-            min-height: calc(100vh - 80px);
-            padding-top: 80px;
-            animation: fadeIn 0.8s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .page-container.active {
-            display: block;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://haireveryday.com/wp-content/uploads/2023/02/image-99.png') no-repeat center center/cover;
-            padding: 0 5%;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 20%, rgba(10,10,10,0.9) 70%);
-        }
-        
-        .hero-content {
-            max-width: 700px;
-            z-index: 10;
-            position: relative;
-        }
-        
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            line-height: 1.1;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            background: linear-gradient(to right, var(--gold), #fff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-        }
-        
-        .hero h1::after {
-            content: 'PREMIUM';
-            position: absolute;
-            top: -15px;
-            right: 0;
-            font-size: 1.5rem;
-            background: var(--red);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 30px;
-        }
-        
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            font-weight: 300;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .hero-buttons .contact-btn {
-            font-size: 1.2rem;
-            padding: 1rem 2.5rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-        }
-        
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            padding: 4rem 5%;
-        }
-        
-        .product-card {
-            background: var(--black);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.5s ease;
-        }
-        
-        .product-card.hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            height: 0;
-            margin: 0;
-            padding: 0;
-            border: none;
-            overflow: hidden;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px) rotateY(5deg);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5), var(--glow);
-        }
-        
-        .product-img {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            transition: transform 0.5s ease;
-            overflow: hidden;
-        }
-        
-        .product-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8));
-        }
-        
-        .product-card:hover .product-img {
-            transform: scale(1.05);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--red);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            z-index: 2;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .product-info h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--gold);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .product-info h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-        }
-        
-        .product-info p {
-            color: #bbb;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-            font-size: 0.95rem;
-        }
-        
-        .price {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .current-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-        
-        .original-price {
-            font-size: 1.2rem;
-            text-decoration: line-through;
-            color: #888;
-        }
-        
-        .discount {
-            background: var(--red);
-            color: white;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        
-        .bundle-info {
-            background: rgba(212, 175, 55, 0.1);
-            border-left: 3px solid var(--gold);
-            padding: 0.8rem;
-            margin-bottom: 1.5rem;
-            border-radius: 0 5px 5px 0;
-            font-size: 0.9rem;
-        }
-        
-        .bundle-info strong {
-            color: var(--gold);
-        }
-        
-        .product-actions {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .inquire-button {
-            flex: 1;
-            background: var(--gold);
-            color: var(--black);
-            border: none;
-            padding: 0.8rem;
-            border-radius: 5px;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-        
-        .inquire-button i {
-            margin-right: 8px;
-        }
-        
-        .inquire-button:hover {
-            background: #b8860b;
-            transform: scale(1.05);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--black);
-            padding: 4rem 5% 2rem;
-            border-top: 2px solid var(--gold);
-            position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold), var(--accent), var(--gold));
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-column h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links li i {
-            color: var(--gold);
-            margin-right: 10px;
-            width: 20px;
-        }
-        
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .footer-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
-        }
-        
-        .footer-links a:hover::after {
-            width: 100%;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--dark-gray);
-            color: var(--gold);
-            font-size: 1.2rem;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .social-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--gold), var(--accent));
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover::before {
-            opacity: 1;
-        }
-        
-        .social-links a i {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .social-links a:hover {
-            color: var(--black);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--light-gray);
-            color: #888;
-            font-size: 0.9rem;
-        }
-        
-        /* Page Title */
-        .page-title {
-            text-align: center;
-            padding: 6rem 5% 3rem;
-            background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)), url('https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1677&q=80') no-repeat center center/cover;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .page-title::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 20%, rgba(10,10,10,0.9) 70%);
-        }
-        
-        .page-title-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .page-title h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-            color: var(--gold);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-        
-        .page-title p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #ddd;
-            font-weight: 300;
-        }
-        
-        .filter-bar {
-            background: var(--dark-gray);
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: sticky;
-            top: 80px;
-            z-index: 99;
-        }
-        
-        .filter-button {
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: bold;
-        }
-        
-        .filter-button:hover, .filter-button.active {
-            background: var(--gold);
-            color: var(--black);
-            transform: translateY(-3px);
-        }
-        
-        /* Contact Modal */
-        .contact-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-        }
-        
-        .contact-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            background: var(--black);
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            padding: 2.5rem;
-            position: relative;
-            border: 2px solid var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-            transform: scale(0.8);
-            transition: transform 0.5s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .contact-modal.active .modal-content {
-            transform: scale(1);
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--white);
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 2;
-        }
-        
-        .close-modal:hover {
-            color: var(--gold);
-            transform: rotate(90deg);
-        }
-        
-        .modal-content h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--black);
-            flex-shrink: 0;
-        }
-        
-        .contact-details {
-            flex: 1;
-        }
-        
-        .contact-details h4 {
-            font-family: 'Oswald', sans-serif;
-            color: var(--gold);
-            margin-bottom: 0.3rem;
-        }
-        
-        .contact-details p, .contact-details a {
-            color: #bbb;
-            text-decoration: none;
-            transition: var(--transition);
-            display: block;
-            word-break: break-all;
-        }
-        
-        .contact-details a:hover {
-            color: var(--gold);
-        }
-        
-        /* Responsive Design - Desktop Fixes */
-        /* Improved desktop layout */
-        .hero-content {
-            max-width: 850px;
-        }
-        
-        .products-grid {
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        }
-        
-        .product-card {
-            height: 100%;
-        }
-        
-        .product-info {
-            min-height: 280px;
-        }
-        
-        /* Mobile Optimizations */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                flex-wrap: wrap;
-                padding: 1rem;
-            }
-            
-            .logo {
-                font-size: 1.8rem;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: rgba(10, 10, 10, 0.95);
-                border-bottom: 2px solid var(--gold);
-                box-shadow: 0 10px 15px rgba(0,0,0,0.5);
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.4s ease;
-                z-index: 999;
-            }
-            
-            nav.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 1rem;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 0.5rem 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            nav a {
-                width: 100%;
-                padding: 1rem;
-                font-size: 1.2rem;
-            }
-            
-            .contact-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-            
-            .hero {
-                text-align: center;
-                height: auto;
-                padding: 6rem 5% 4rem;
-            }
-            
-            .hero-content {
-                margin: 0 auto;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero h1::after {
-                top: -10px;
-                font-size: 1.2rem;
-                padding: 3px 10px;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .page-title {
-                padding: 4rem 5% 2rem;
-            }
-            
-            .page-title h2 {
-                font-size: 2.5rem;
-            }
-            
-            .filter-bar {
-                padding: 1rem 5%;
-                gap: 0.8rem;
-            }
-            
-            .filter-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 2rem 5%;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-column h3::after {
-                width: 40px;
-            }
-            
-            .copyright {
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* Extra small phones (360px and below) */
-        @media (max-width: 360px) {
-            .logo {
-                font-size: 1.4rem;
-            }
-            
-            .logo::after {
-                font-size: 0.4rem;
-                bottom: -5px;
-                right: -5px;
-            }
-            
-            .page-title {
-                padding: 3rem 3% 1.5rem;
-            }
-            
-            .page-title h2 {
-                font-size: 1.8rem;
-                letter-spacing: 1px;
-            }
-            
-            .page-title p {
-                font-size: 1rem;
-            }
-            
-            .hero {
-                padding: 5rem 3% 3rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero h1::after {
-                font-size: 0.9rem;
-                top: -8px;
-                padding: 2px 8px;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .contact-btn {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-            
-            .product-img {
-                height: 250px;
-            }
-            
-            .product-info {
-                padding: 1.2rem;
-                min-height: auto;
-            }
-            
-            .product-info h3 {
-                font-size: 1.5rem;
-            }
-            
-            .current-price {
-                font-size: 1.5rem;
-            }
-            
-            .original-price {
-                font-size: 1rem;
-            }
-            
-            .discount {
-                font-size: 0.8rem;
-            }
-            
-            .bundle-info {
-                padding: 0.6rem;
-                font-size: 0.85rem;
-            }
-            
-            .inquire-button {
-                font-size: 0.85rem;
-                padding: 0.7rem;
-            }
-            
-            .filter-bar {
-                gap: 0.5rem;
-                padding: 1rem 3%;
-            }
-            
-            .filter-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-            
-            .footer-column h3 {
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-            
-            .footer-links li {
-                font-size: 0.9rem;
-            }
-            
-            .social-links a {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .copyright {
-                font-size: 0.75rem;
-            }
-        }
-        
-        /* Floating elements */
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DualStream Nexus - Premium Twitch Experience</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --bg-dark: #070a12;
+      --bg-light: #111827;
+      --panel: #0f1720;
+      --panel-light: #1a2435;
+      --accent: #7c5cff;
+      --accent-light: #8f76ff;
+      --accent-dark: #6a4ce0;
+      --accent-secondary: #00e0ff;
+      --accent-secondary-light: #4deeff;
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.7);
+      --text-dim: rgba(255,255,255,0.5);
+      --glass: rgba(255,255,255,0.03);
+      --glass-light: rgba(255,255,255,0.05);
+      --glass-dark: rgba(255,255,255,0.01);
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --shadow-light: 0 5px 15px rgba(124,92,255,0.15);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --radius-sm: 10px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 10%, rgba(124,92,255,0.15), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(0,200,255,0.08), transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(124,92,255,0.05), transparent 50%),
+        linear-gradient(135deg, var(--bg-dark), var(--bg));
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Loading Screen */
+    .intro-wrap {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 15, 23, 0.85);
+    }
+
+    .intro {
+      padding: 50px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      box-shadow: 
+        var(--shadow),
+        0 0 0 1px rgba(255,255,255,0.05);
+      text-align: center;
+      animation: fadeInUp 1s ease forwards;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+    }
+
+    .logo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 25px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      display: grid;
+      place-content: center;
+      font-weight: 800;
+      font-size: 32px;
+      color: var(--bg-dark);
+      box-shadow: 
+        0 8px 30px rgba(124,92,255,0.2),
+        0 0 0 10px rgba(124,92,255,0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .intro h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro p {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .progress-wrap {
+      height: 12px;
+      background: var(--glass);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+      transition: width 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: loadingShine 1.5s infinite;
+    }
+
+    /* Main App */
+    .app {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.6s ease;
+      padding: 30px;
+      max-width: 1600px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--glass);
+    }
+
+    .app-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .app-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      display: grid;
+      place-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--bg-dark);
+      box-shadow: var(--shadow-light);
+    }
+
+    .app-title h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--text), var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .app-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-btn {
+      padding: 10px 20px;
+      background: var(--glass);
+      border: none;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn:hover {
+      background: var(--glass-light);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      box-shadow: var(--shadow-light);
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: stretch;
+      flex: 1;
+    }
+
+    .panel {
+      background: linear-gradient(145deg, var(--panel), var(--panel-light));
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        var(--shadow),
+        0 10px 30px rgba(124,92,255,0.15);
+    }
+
+    .panel-header {
+      padding: 20px;
+      background: var(--glass);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--glass-light);
+    }
+
+    .channel-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .channel-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 10px rgba(124,92,255,0.3);
+    }
+
+    .channel-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .channel-details h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .channel-details p {
+      color: var(--text-dim);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .live-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff3366;
+      margin-right: 5px;
+      animation: pulse 2s infinite;
+    }
+
+    .panel-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--glass);
+      border: none;
+      color: var(--text-muted);
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--glass-light);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    .panel-content {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    .panel img.preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: filter 0.3s;
+      min-height: 350px;
+    }
+
+    .panel img.preview:hover {
+      filter: brightness(1.2);
+    }
+
+    .panel iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      display: none;
+      border: 0;
+    }
+
+    .embed-error {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(11, 15, 23, 0.9);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      z-index: 10;
+    }
+
+    .embed-error i {
+      font-size: 48px;
+      color: #ff3366;
+      margin-bottom: 15px;
+    }
+
+    .embed-error h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .embed-error p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+
+    .panel-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(11,15,23,0.8));
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 5;
+    }
+
+    .panel:hover .panel-overlay {
+      opacity: 1;
+    }
+
+    .stream-stats {
+      display: flex;
+      gap: 15px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text);
+      font-size: 14px;
+      background: rgba(11,15,23,0.7);
+      padding: 5px 10px;
+      border-radius: 6px;
+      backdrop-filter: blur(5px);
+    }
+
+    .watch-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: none;
+      border-radius: var(--radius-sm);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 5px 15px rgba(124,92,255,0.3);
+    }
+
+    .watch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(124,92,255,0.4);
+    }
+
+    /* Footer */
+    .app-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--glass);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes loadingShine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(200%) translateY(200%) rotate(45deg); }
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .stage {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .stage {
+        grid-template-columns: 1fr;
+      }
+      
+      .app-header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      
+      .app-nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .app {
+        padding: 20px;
+      }
+      
+      .panel-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+      
+      .panel-actions {
+        align-self: flex-end;
+      }
+      
+      .app-nav {
+        flex-wrap: wrap;
+      }
+      
+      .nav-btn {
+        flex: 1;
+        justify-content: center;
+        min-width: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo"><i class="fas fa-crown"></i>Bank <span>Black365</span></div>
-        
-        <button class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
-        </button>
-        
-        <nav id="nav">
-            <ul>
-                <li><a href="#" class="nav-link nav-active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#" class="nav-link" data-page="products"><i class="fas fa-shopping-bag"></i> Collection</a></li>
-                <li><a href="#" class="nav-link" id="contactLink"><i class="fas fa-headset"></i> Contact</a></li>
-            </ul>
-        </nav>
-        <button class="contact-btn" id="contactBtn"><i class="fas fa-phone"></i> CALL NOW</button>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Loading Screen -->
+  <div class="intro-wrap" id="intro">
+    <div class="intro">
+      <div class="logo">DS</div>
+      <h1>DualStream Nexus</h1>
+      <p>Initializing premium streaming experience...</p>
+      <div class="progress-wrap">
+        <div class="progress" id="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <main class="app" id="app">
+    <header class="app-header">
+      <div class="app-title">
+        <div class="app-logo">DS</div>
+        <h1>DualStream Nexus</h1>
+      </div>
+      <nav class="app-nav">
+        <button class="nav-btn active" data-tab="discover"><i class="fas fa-compass"></i> Discover</button>
+        <button class="nav-btn" data-tab="favorites"><i class="fas fa-heart"></i> Favorites</button>
+        <button class="nav-btn" data-tab="recent"><i class="fas fa-history"></i> Recent</button>
+        <button class="nav-btn" data-tab="settings"><i class="fas fa-cog"></i> Settings</button>
+      </nav>
     </header>
 
-    <!-- Contact Modal -->
-    <div class="contact-modal" id="contactModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h3>Contact Us</h3>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>CALL US</h4>
-                        <a href="tel:+13237491666">(323) 749-1666</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>EMAIL US</h4>
-                        <a href="mailto:bankblack247365@gmail.com">bankblack247365@gmail.com</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>VISIT US</h4>
-                        <p>100 E Montana St, Pasadena, CA 91103</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>HOURS</h4>
-                        <p>Mon-Fri: 9AM - 6PM EST</p>
-                        <p>Sat: 10AM - 4PM EST</p>
-                    </div>
-                </div>
+    <div class="stage">
+      <div class="panel" data-channel="donxfury">
+        <div class="panel-header">
+          <div class="channel-info">
+            <div class="channel-avatar">
+              <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/7ed5e0c6-19a7-4c6d-95c2-6e373bd5d5a7-profile_image-70x70.png" alt="DonxFury Avatar">
             </div>
+            <div class="channel-details">
+              <h3>DonxFury</h3>
+              <p><span class="live-indicator"></span> Live • Gaming</p>
+            </div>
+          </div>
+          <div class="panel-actions">
+            <button class="action-btn" title="Share" onclick="shareStream('donxfury')"><i class="fas fa-share-alt"></i></button>
+            <button class="action-btn" title="Open in Twitch" onclick="openTwitch('donxfury')"><i class="fab fa-twitch"></i></button>
+          </div>
         </div>
+        <div class="panel-content">
+          <img class="preview" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_donxfury-320x180.jpg" alt="DonxFury Stream Preview">
+          <iframe src="" allowfullscreen></iframe>
+          <div class="embed-error" id="error-donxfury">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Stream Unavailable</h3>
+            <p>This stream cannot be embedded. Click "Watch on Twitch" to view it directly on Twitch.</p>
+            <button class="watch-btn" onclick="openTwitch('donxfury')">
+              <i class="fab fa-twitch"></i> Watch on Twitch
+            </button>
+          </div>
+          <div class="panel-overlay">
+            <div class="stream-stats">
+              <div class="stat"><i class="fas fa-eye"></i> <span class="view-count">3.2K</span></div>
+              <div class="stat"><i class="fas fa-comment"></i> <span class="comment-count">147</span></div>
+            </div>
+            <button class="watch-btn" data-channel="donxfury">
+              <i class="fas fa-play"></i> Watch Stream
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-channel="kaicenat">
+        <div class="panel-header">
+          <div class="channel-info">
+            <div class="channel-avatar">
+              <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/4a6a8e33-4f09-4f9f-9e0e-6e9296b9a7f1-profile_image-70x70.png" alt="Kai Cenat Avatar">
+            </div>
+            <div class="channel-details">
+              <h3>Kai Cenat</h3>
+              <p><span class="live-indicator"></span> Live • Just Chatting</p>
+            </div>
+          </div>
+          <div class="panel-actions">
+            <button class="action-btn" title="Share" onclick="shareStream('kaicenat')"><i class="fas fa-share-alt"></i></button>
+            <button class="action-btn" title="Open in Twitch" onclick="openTwitch('kaicenat')"><i class="fab fa-twitch"></i></button>
+          </div>
+        </div>
+        <div class="panel-content">
+          <img class="preview" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_kaicenat-320x180.jpg" alt="Kai Cenat Stream Preview">
+          <iframe src="" allowfullscreen></iframe>
+          <div class="embed-error" id="error-kaicenat">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Stream Unavailable</h3>
+            <p>This stream cannot be embedded. Click "Watch on Twitch" to view it directly on Twitch.</p>
+            <button class="watch-btn" onclick="openTwitch('kaicenat')">
+              <i class="fab fa-twitch"></i> Watch on Twitch
+            </button>
+          </div>
+          <div class="panel-overlay">
+            <div class="stream-stats">
+              <div class="stat"><i class="fas fa-eye"></i> <span class="view-count">5.7K</span></div>
+              <div class="stat"><i class="fas fa-comment"></i> <span class="comment-count">324</span></div>
+            </div>
+            <button class="watch-btn" data-channel="kaicenat">
+              <i class="fas fa-play"></i> Watch Stream
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Home Page -->
-    <div id="home-page" class="page-container active">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>PREMIUM <span>WIGS</span> WITH <span>ELEGANCE</span></h1>
-                <p>Who needs diamonds when you’ve got flawless Indian hair that turns heads, speaks confidence, and shines brighter than any jewel ever could?.</p>
-                <div class="hero-buttons">
-                    <button class="contact-btn" id="heroContactBtn"><i class="fas fa-phone"></i> CALL NOW</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Products -->
-        <div class="page-title">
-            <div class="page-title-content">
-                <h2>Signature Styles</h2>
-                <p>Forget diamonds — Indian hair is the new obsession.</p>
-            </div>
-        </div>
-        
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card floating">
-                <div class="product-img" style="background-image: url('https://jcwholesalevirginhair.com/image/cache/catalog/indian-hair/indian-natural-wave-hair-bundles-800x800.jpg');">
-                    <div class="product-badge">HOT</div>
-                </div>
-                <div class="product-info">
-                    <h3>Natural Wave Raw Indian Hair(Steamed)</h3>
-                    <p>Classy natural black body wave with straight free parting. Perfect for any occasion.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 2 -->
-            <div class="product-card floating" style="animation-delay: 0.2s;">
-                <div class="product-img" style="background-image: url('https://i.etsystatic.com/41424740/r/il/4411a3/4701753351/il_1080xN.4701753351_isfu.jpg');">
-                    <div class="product-badge">NEW</div>
-                </div>
-                <div class="product-info">
-                    <h3>Raw Indian Hair Straight</h3>
-                    <p>Indian straight hair. Stand out with this platinum statement piece.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 3 -->
-            <div class="product-card floating" style="animation-delay: 0.4s;">
-                <div class="product-img" style="background-image: url('https://m.media-amazon.com/images/I/71Gdvh0mvTL._SL1200_.jpg');">
-                    <div class="product-badge">FREE SHIP</div>
-                </div>
-                <div class="product-info">
-                    <h3>Nardo Black Exclusive Bodywave 1b</h3>
-                    <p>Raw Indian natural wave hair, steamed for perfect texture and longevity.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div class="page-title" style="background-image: url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
-            <div class="page-title-content">
-                <h2>The Difference</h2>
-                <p>Premium quality with urban roots - designed for the modern queen</p>
-            </div>
-        </div>
-        
-        <div class="products-grid">
-            <div style="grid-column: 1 / -1; background: var(--dark-gray); border-radius: 15px; padding: 3rem; border: 1px solid var(--light-gray); text-align: center;">
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <div style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3 style="font-family: 'Oswald', sans-serif; color: var(--gold); margin-bottom: 1rem;">Premium Quality</h3>
-                        <p>100% human hair ethically sourced from the finest suppliers worldwide.</p>
-                    </div>
-                    <div style="flex: 1; min-width: 250px;">
-                        <div style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;">
-                            <i class="fas fa-cut"></i>
-                        </div>
-                        <h3 style="font-family: 'Oswald', sans-serif; color: var(--gold); margin-bottom: 1rem;">Handcrafted</h3>
-                        <p>Each wig is meticulously crafted by our team of expert stylists.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Products Page -->
-    <div id="products-page" class="page-container">
-        <div class="page-title">
-            <div class="page-title-content">
-                <h2>Premium Wig Collection</h2>
-                <p>Discover our exclusive range of high-quality wigs for black women</p>
-            </div>
-        </div>
-        
-        <div class="filter-bar">
-            <button class="filter-button active" data-filter="all">All Styles</button>
-            <button class="filter-button" data-filter="straight">Straight</button>
-            <button class="filter-button" data-filter="body-wave">Body Wave</button>
-            <button class="filter-button" data-filter="natural-wave">Natural Wave</button>
-            <button class="filter-button" data-filter="lace-front">Lace Front</button>
-        </div>
-        
-        <div class="products-grid">
-            <!-- Straight Wigs -->
-            <div class="product-card floating" data-style="straight">
-                <div class="product-img" style="background-image: url('https://i.etsystatic.com/41424740/r/il/4411a3/4701753351/il_1080xN.4701753351_isfu.jpg');">
-                    <div class="product-badge">BEST SELLER</div>
-                </div>
-                <div class="product-info">
-                    <h3>Raw Indian Hair Straight</h3>
-                    <p>Indian straight hair. Stand out with this platinum statement piece.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-card floating" data-style="straight" style="animation-delay: 0.1s;">
-                <div class="product-img" style="background-image: url('https://i.pinimg.com/originals/35/e0/8c/35e08cddf96ff0e9bf34d48bef2365c8.jpg');">
-                    <div class="product-badge">SALE</div>
-                </div>
-                <div class="product-info">
-                    <h3>Blonde #613 Straight Boutique</h3>
-                    <p>Raw Indian hair straight bundle with natural texture and premium quality.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Body Wave Wigs -->
-            <div class="product-card floating" data-style="natural-wave" style="animation-delay: 0.2s;">
-                <div class="product-img" style="background-image: url('https://jcwholesalevirginhair.com/image/cache/catalog/indian-hair/indian-natural-wave-hair-bundles-800x800.jpg');">
-                    <div class="product-badge">HOT</div>
-                </div>
-                <div class="product-info">
-                    <h3>Natural Wave Raw Indian Hair(Steamed)</h3>
-                    <p>Classy natural black body wave with straight free parting. Perfect for any occasion.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.3s;">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1595475884562-073c30d45670?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');">
-                    <div class="product-badge">PREMIUM</div>
-                </div>
-                <div class="product-info">
-                    <h3>Virgin Hair Body Wave</h3>
-                    <p>100% human hair body wave with natural texture and premium quality.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Lace Front Wigs -->
-            <div class="product-card floating" data-style="lace-front" style="animation-delay: 0.4s;">
-                <div class="product-img" style="background-image: url('https://ae01.alicdn.com/kf/S9e9bce6421624dd68f8c45ae9bbdb540D/Body-Wave-13x4-Lace-Front-Human-Hair-Wig-For-Black-Women-Brazilian-Weave-Lace-Closure-Wig.jpg');">
-                    <div class="product-badge">POPULAR</div>
-                </div>
-                <div class="product-info">
-                    <h3>Body Wave Lace Front</h3>
-                    <p>Long lace front wig with pre-plucked natural hairline and baby hair.</p>
-                    
-                    <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                        <div class="discount">Deal Of The Month </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- NEW Wigs -->
-            <div class="product-card floating" data-style="body-wave" style="animation-delay: 0.5s;">
-                <div class="product-img" style="background-image: url('https://m.media-amazon.com/images/I/71Gdvh0mvTL._SL1200_.jpg');">
-                    <div class="product-badge">NEW</div>
-                </div>
-                <div class="product-info">
-                    <h3>Nardo Black Exclusive Bodywave 1b</h3>
-                    <p>natural hair,perfect texture and longevity.</p>
-                                        <div class="bundle-info">
-                        <strong>24 Inches:</strong> $180.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>26 Inches:</strong> $200.00
-                    </div>
-                     <div class="bundle-info">
-                        <strong>28 Inches:</strong> $250.00
-                    </div>
-                    <div class="bundle-info">
-                        <strong>30 Inches:</strong> $333.00
-                    </div>
-                    
-                    <div class="price">
-                        <div class="current-price">$180.00-$333.00</div>
-                        <div class="discount">Deal Of The Month </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="inquire-button"><i class="fas fa-phone"></i> INQUIRE</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>BankBlack365 Wigs</h3>
-                <p>Premium wigs with urban elegance. We blend street authenticity with luxury quality for unparalleled style.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#" class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#" class="nav-link" data-page="products"><i class="fas fa-shopping-bag"></i> Collection</a></li>
-                    <li><a href="#" id="footerContact"><i class="fas fa-headset"></i> Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Customer Care</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-question-circle"></i> <a href="example.com"> FAQs</a></li>
-                    <li><a href="#"><i class="fas fa-truck"></i> Shipping Policy</a></li>
-                    <li><a href="#"><i class="fas fa-exchange-alt"></i> Returns & Exchanges</a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> Wig Care Guide</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contact Info</h3>
-                <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> 100 E Montana St,CA 91103</li>
-                    <li><i class="fas fa-phone"></i> <a href="tel:+13237491666">(323) 749-1666</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:bankblackbaby@gmail.com">bankblackbaby@gmail.com</a></li>
-                    <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM EST</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            &copy; 2025 BankBlack365. All rights reserved. Premium quality with street authenticity.
-        </div>
+    <footer class="app-footer">
+      <div class="copyright">© 2023 DualStream Nexus. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('terms')">Terms</a>
+        <a href="#" onclick="showPage('privacy')">Privacy</a>
+        <a href="#" onclick="showPage('help')">Help</a>
+        <a href="#" onclick="showPage('feedback')">Feedback</a>
+      </div>
     </footer>
+  </main>
 
-    <script>
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.getElementById('nav');
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize particles background
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#7c5cff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.3, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#7c5cff",
+            opacity: 0.2,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "none",
+            random: true,
+            out_mode: "out",
+            bounce: false
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+            resize: true
+          }
+        },
+        retina_detect: true
+      });
+    });
+
+    // Loading animation
+    const intro = document.getElementById('intro');
+    const progress = document.getElementById('progress');
+    const app = document.getElementById('app');
+    
+    let width = 0;
+    const loader = setInterval(() => {
+      width += 10;
+      progress.style.width = width + '%';
+      
+      if (width >= 100) {
+        clearInterval(loader);
+        intro.style.opacity = 0;
+        setTimeout(() => {
+          intro.remove();
+          app.style.opacity = 1;
+          app.style.transform = 'none';
+        }, 600);
+      }
+    }, 150);
+
+    // Load stream function
+    function loadStream(img) {
+      const panel = img.closest('.panel');
+      const channel = panel.getAttribute('data-channel');
+      
+      // Hide the preview image
+      img.style.display = 'none';
+      
+      // Get the iframe and set its source
+      const frame = panel.querySelector('iframe');
+      const errorMessage = panel.querySelector('.embed-error');
+      
+      // Try to load the Twitch embed
+      try {
+        // For local development, we'll use a workaround
+        // In production, you would need to register your domain with Twitch
+        frame.src = `https://player.twitch.tv/?channel=${channel}&parent=localhost&parent=127.0.0.1&autoplay=true`;
+        frame.style.display = 'block';
         
-        hamburger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            hamburger.innerHTML = nav.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : 
-                '<i class="fas fa-bars"></i>';
+        // Add error handling for the iframe
+        frame.onload = function() {
+          // If we get here, the iframe loaded successfully
+          errorMessage.style.display = 'none';
+        };
+        
+        frame.onerror = function() {
+          // If there's an error, show the error message
+          frame.style.display = 'none';
+          errorMessage.style.display = 'flex';
+        };
+        
+        // Set a timeout to show error if iframe doesn't load
+        setTimeout(function() {
+          if (frame.contentDocument && frame.contentDocument.title === '') {
+            frame.style.display = 'none';
+            errorMessage.style.display = 'flex';
+          }
+        }, 3000);
+        
+      } catch (error) {
+        // If there's an error, show the error message
+        frame.style.display = 'none';
+        errorMessage.style.display = 'flex';
+        console.error('Error loading Twitch embed:', error);
+      }
+      
+      // Update panel header to show "Watching" state
+      const channelDetails = panel.querySelector('.channel-details p');
+      channelDetails.innerHTML = '<span class="live-indicator"></span> Watching • Live';
+      
+      // Update the watch button to show "Stop Watching"
+      const watchBtn = panel.querySelector('.watch-btn');
+      watchBtn.innerHTML = '<i class="fas fa-stop"></i> Stop Watching';
+      watchBtn.onclick = function() { stopStream(this); };
+      
+      // Update stats with random values to simulate live updates
+      updateStats(panel);
+    }
+
+    // Stop stream function
+    function stopStream(btn) {
+      const panel = btn.closest('.panel');
+      const channel = panel.getAttribute('data-channel');
+      
+      // Get the iframe and hide it
+      const frame = panel.querySelector('iframe');
+      frame.src = '';
+      frame.style.display = 'none';
+      
+      // Hide error message if visible
+      const errorMessage = panel.querySelector('.embed-error');
+      errorMessage.style.display = 'none';
+      
+      // Show the preview image again
+      const preview = panel.querySelector('.preview');
+      preview.style.display = 'block';
+      
+      // Update panel header to show "Live" state
+      const channelDetails = panel.querySelector('.channel-details p');
+      channelDetails.innerHTML = '<span class="live-indicator"></span> Live • ' + (channel === 'donxfury' ? 'Gaming' : 'Just Chatting');
+      
+      // Update the watch button back to "Watch Stream"
+      btn.innerHTML = '<i class="fas fa-play"></i> Watch Stream';
+      btn.setAttribute('data-channel', channel);
+      btn.onclick = function() { loadStream(panel.querySelector('.preview')); };
+    }
+
+    // Update stream stats with random values
+    function updateStats(panel) {
+      const viewCount = panel.querySelector('.view-count');
+      const commentCount = panel.querySelector('.comment-count');
+      
+      // Generate random stats
+      const views = Math.floor(Math.random() * 2000) + 3000;
+      const comments = Math.floor(Math.random() * 200) + 100;
+      
+      viewCount.textContent = (views / 1000).toFixed(1) + 'K';
+      commentCount.textContent = comments;
+      
+      // Update stats every 10 seconds if stream is playing
+      if (panel.querySelector('iframe').style.display === 'block' || 
+          panel.querySelector('.embed-error').style.display === 'flex') {
+        setTimeout(() => updateStats(panel), 10000);
+      }
+    }
+
+    // Share stream function
+    function shareStream(channel) {
+      const url = `https://www.twitch.tv/${channel}`;
+      if (navigator.share) {
+        navigator.share({
+          title: `Watch ${channel} on Twitch`,
+          url: url
         });
-        
-        // Close mobile menu when clicking a nav link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
+      } else {
+        // Fallback for browsers that don't support Web Share API
+        navigator.clipboard.writeText(url).then(() => {
+          alert(`Link to ${channel}'s stream copied to clipboard!`);
         });
+      }
+    }
+
+    // Open in Twitch function
+    function openTwitch(channel) {
+      window.open(`https://www.twitch.tv/${channel}`, '_blank');
+    }
+
+    // Show page function for footer links
+    function showPage(page) {
+      const messages = {
+        terms: "Terms of Service page would open here",
+        privacy: "Privacy Policy page would open here",
+        help: "Help & Support page would open here",
+        feedback: "Feedback form would open here"
+      };
+      alert(messages[page]);
+    }
+
+    // Add interactivity to navigation buttons
+    document.querySelectorAll('.nav-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
         
-        // Page Navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetPage = this.getAttribute('data-page');
-                
-                // Only change pages if it's not the contact link
-                if (this.id !== 'contactLink') {
-                    // Update active nav
-                    document.querySelectorAll('.nav-link').forEach(nav => {
-                        nav.classList.remove('nav-active');
-                    });
-                    this.classList.add('nav-active');
-                    
-                    showPage(targetPage);
-                }
-            });
-        });
-        
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-container').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show the requested page
-            if (pageId) {
-                document.getElementById(`${pageId}-page`).classList.add('active');
-            }
-            
-            // Scroll to top
-            window.scrollTo({top: 0, behavior: 'smooth'});
+        // Show a simple alert when switching tabs (in a real app, this would load different content)
+        const tabName = this.getAttribute('data-tab');
+        if (tabName !== 'discover') {
+          alert(`Loading ${tabName} content... (This is a demo - in a real app, this would load different streams)`);
         }
-        
-        // Contact Modal functionality
-        const contactModal = document.getElementById('contactModal');
-        const contactBtn = document.getElementById('contactBtn');
-        const heroContactBtn = document.getElementById('heroContactBtn');
-        const contactLink = document.getElementById('contactLink');
-        const footerContact = document.getElementById('footerContact');
-        const closeModal = document.getElementById('closeModal');
-        const inquireButtons = document.querySelectorAll('.inquire-button');
-        
-        // Function to open modal
-        function openContactModal() {
-            contactModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Make preview images clickable to load streams
+    document.querySelectorAll('.preview').forEach(preview => {
+      preview.addEventListener('click', function() {
+        loadStream(this);
+      });
+    });
+
+    // Make watch buttons clickable to load streams
+    document.querySelectorAll('.watch-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const panel = this.closest('.panel');
+        const preview = panel.querySelector('.preview');
+        loadStream(preview);
+      });
+    });
+
+    // Auto-refresh preview images every 30 seconds
+    setInterval(() => {
+      document.querySelectorAll('.preview').forEach(preview => {
+        if (preview.style.display !== 'none') {
+          // Add a cache-busting parameter to force refresh
+          const src = preview.src.split('?')[0];
+          preview.src = src + '?t=' + new Date().getTime();
         }
-        
-        // Function to close modal
-        function closeContactModal() {
-            contactModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        // Event listeners
-        contactBtn.addEventListener('click', openContactModal);
-        heroContactBtn.addEventListener('click', openContactModal);
-        contactLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openContactModal();
-        });
-        footerContact.addEventListener('click', function(e) {
-            e.preventDefault();
-            openContactModal();
-        });
-        closeModal.addEventListener('click', closeContactModal);
-        inquireButtons.forEach(button => {
-            button.addEventListener('click', openContactModal);
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === contactModal) {
-                closeContactModal();
-            }
-        });
-        
-        // Filter functionality
-        document.querySelectorAll('.filter-button').forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.filter-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Get filter value
-                const filterValue = this.getAttribute('data-filter');
-                
-                // Get all product cards
-                const products = document.querySelectorAll('#products-page .product-card');
-                
-                // Filter products
-                products.forEach(product => {
-                    if (filterValue === 'all') {
-                        product.classList.remove('hidden');
-                    } else {
-                        const style = product.getAttribute('data-style');
-                        if (style === filterValue) {
-                            product.classList.remove('hidden');
-                        } else {
-                            product.classList.add('hidden');
-                        }
-                    }
-                });
-            });
-        });
-        
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add animations to product cards
-            document.querySelectorAll('.product-card').forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-        });
-        
-        // Touch optimization for mobile
-        document.querySelectorAll('button, a').forEach(element => {
-            element.style.cursor = 'pointer';
-            element.addEventListener('touchstart', () => {
-                element.classList.add('active');
-            });
-            element.addEventListener('touchend', () => {
-                element.classList.remove('active');
-            });
-        });
-    </script>
+      });
+    }, 30000);
+  </script>
 </body>
 </html>
